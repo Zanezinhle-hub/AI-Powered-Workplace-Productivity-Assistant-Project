@@ -89,3 +89,12 @@ export function buildPrompt(data: ToolInputType): { system: string; prompt: stri
       };
   }
 }
+
+export const ChatInput = z.object({
+  messages: z.array(
+    z.object({
+      role: z.enum(["user", "assistant"]),
+      content: z.string(),
+    }),
+  ),
+});
